@@ -1,0 +1,780 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a{
+    text-decoration: unset;
+}
+
+ul{
+    margin-left: 1.5rem;
+    list-style: none;
+}
+
+button {
+    border: none;
+    background: none;
+    color: unset;
+    cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6,p,ul,ol{
+    margin: 1rem 0;
+}
+
+body, html{
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+
+header{
+    display: flex;
+    height: 4rem;
+    min-width: 100% !important;
+    justify-content: space-between;
+    background-color: rgb(65, 83, 175);
+}
+
+header .title{
+    color: white;
+    margin: 0;
+    padding: 0.8rem;
+    font-family: 'Racing Sans One', cursive;
+    font-size: 34px;
+}
+
+header .auth-options{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+header .auth-options button{
+    color: white;
+    padding: 0.9rem;
+    height: inherit;
+    font-size: 0.9rem;
+}
+
+header .auth-options button:hover{
+    background-color: #066BC2;
+    color: white;
+}
+
+/* Main Page Styles */
+
+.page{
+    height: 100%; 
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container{
+    width: 80%;
+}
+
+/* Credential Styles */
+
+.credential-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.credential-title{
+    text-align: center;
+    background-color: rgb(163, 158, 158);
+    color: white;
+    width: 100%;
+    padding: 0.5rem;
+    margin: 0;
+}
+
+.credential-wrapper{
+    width: 50%;
+    box-shadow: 2px 2px 4px 3px lightgray;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.form{
+    width: 85%;
+    padding: 1rem;
+}
+
+.form input[type="text"],
+input[type="email"],
+input[type="password"]{
+    width: 100%;
+    padding: 0.2rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #BC4558;
+    font-size: 1rem;
+}
+
+.form input[type="submit"]:hover{
+    border: 1px solid rgb(76, 83, 148);
+    background-color: rgb(76, 83, 148);
+    box-shadow: inset 0px 0px 5px rgb(149, 150, 216);
+    color: white;
+    outline: none;
+}
+
+.form input[type="submit"]{
+    width: 30%;
+    display: block;
+    margin: 0.5rem auto;
+    margin-top: 1.2rem;
+    padding: 0.3rem 0.5rem;
+    font-size: 1rem;
+    background-color: white;
+    border: 1px solid #BC4558;
+    color: #BC4558;
+    border-radius: 5px;
+}
+
+/* Sidebar */
+
+.sidebar{
+    padding: 1rem;
+    width: 20%;
+    text-align: center;
+    top: 4rem;
+    margin: 0;
+    box-shadow: 0 5px 7px lightgray;
+}
+
+.sidebar-item {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.sidebar-item:hover{
+    opacity: 0.7;
+    background-color: rgb(65,83,175);
+    color: white;
+}
+
+/* Search Bar*/
+
+.searchbar{
+    width: 95%;
+    padding: 0.5rem;
+    margin: 1rem auto;
+    box-shadow: 0 5px 15px lightgray;
+}
+
+.searchbar form{
+    display: flex;
+}
+
+.searchbar form input[type="text"]{
+    width: 70%;
+}
+
+.searchbar form input[type="date"]{
+    width: 20%;
+}
+
+.searchbar form select{
+    width: 20%;
+}
+
+.searchbar form button{
+    width: 10%;
+    border: 1px solid#066BC2;
+    padding: 0.2rem;
+    color: #066BC2;
+}
+
+.searchbar form button:hover{
+    background-color: #066BC2;
+    color: white;
+}
+
+/* Player Report Styles */
+
+.career-container{
+    width: 95%;
+    margin: 0.5rem auto;
+}
+
+.player-container{
+    width: 95%;
+    margin: 0 auto;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.player-pic{
+    display: block;
+    margin: 0.5rem auto;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 4px 3px lightgray;
+}
+
+.player-info{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    width: 100%;
+    box-shadow: 2px 2px 4px 3px lightgray;
+}
+
+.player-info h5{
+    background-color: black;
+    padding: 0.5rem;
+    color: white;
+    height: 35%;
+}
+
+
+/* Player Stats Styles */
+
+.chart-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-stat-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+    box-shadow: 4px 4px 5px 5px #e5e5e5;
+}
+
+.player-stat-header{
+    width: 100%;
+    color: white;
+    background-color: gray;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.chart-container{
+    width: 50%;
+    height: 50%;
+    padding: 0.5rem;
+}
+
+
+/* Team Styles */
+
+.team-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+
+.record-container{
+    width: 100%;
+    box-shadow: 4px 4px 8px 8px lightgray;
+}
+
+.record-container table{
+    width: 100%;
+}
+
+.record-container table thead tr th{
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.record-container table tbody{
+    text-align: center;
+}
+
+.record-container thead th{
+    width: 15%;
+    font-size: 0.7rem;
+    padding: 0.7rem
+}
+
+.record-container tbody tr td{
+    padding: 0.6rem
+}
+
+.record-container h2{
+    background-color: #1a2a6c;
+    font-family: 'Staatliches', cursive;
+    text-align: center;
+    color: white;
+    padding: 0.4rem;
+}
+
+.percent-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem !important;
+    box-shadow: 4px 4px 8px 2px lightgray;
+}
+
+.wins-container{
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 4px 4px 8px 2px lightgray;
+}
+
+
+.powerplay-container {
+    width:49%;
+    margin-left: 1%;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    box-shadow: 4px 4px 8px 2px lightgray;
+}
+
+.faceoff-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 4px 8px 2px lightgray;
+}
+
+.teamstat-title{
+    background-color: gray;
+    color: white; 
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.goal-wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.goal-wrapper h5{
+    width: 100%;
+    padding: 0.6rem;
+    text-align: center;
+}
+
+/* Percent Container */
+
+.percent-container {
+    text-align: center;
+    color: white;
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+}
+
+.percent-container h5{
+    font-size: 0.9rem;
+    padding: 0.8rem;
+}
+
+.percent-container h6{
+    color: black;
+    font-size: 1.3rem;
+}
+
+.rank_badge{
+    background-color: red;
+    color: white !important;
+    margin: 0.2rem auto;
+    font-size: 0.8rem;
+    width: 20%;
+}
+
+/* Error Styles */
+
+.error-notice{
+    border: 1px solid rgb(218, 125, 125);
+    padding: 0.5rem;
+    display: flex;
+    width: 70%;
+    color: rgb(218, 125, 125);
+    font-size: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    margin: 1rem auto;
+}
+
+.error-notice button{
+    background-color: rgb(197, 46, 46);
+    color: white;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 50%;
+}
+
+/* Score Container */
+
+.score-item{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 48%;
+    margin: 1%;
+}
+
+.home, .away{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+
+ .home-top, .away-top{
+    padding-left: 1rem;
+    border: 0;
+    width: 85%;
+    grid-area: top;
+    font-family: "Poppins", sans-serif;
+}
+
+.home-top p, .away-top p{
+    margin: 0.5rem;
+}
+
+.home-bottom, .away-bottom{
+    width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+
+/* Schedule Styles */
+
+.schedule-wrapper{
+    width: 95%;
+    margin: 0 auto;
+    box-shadow: 4px 4px 4px 4px #e5e5e5;
+}
+
+.schedule-title{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #999999;
+    padding: 0.5rem;
+    color: white;
+}
+
+.game-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+    margin: 1rem 0;
+}
+
+.chart-area{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+/* Footer Styles */
+
+footer{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(65, 83, 175);
+    color: white;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.icon-container{
+    width: 30%;
+    align-self: center;
+}
+
+.footer-links{
+    padding: 1rem;
+}
+
+.link-item{
+    padding: 0.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.link-item:hover{
+    opacity: 0.9;
+    cursor: pointer;
+    width: 100%;
+    background-color: rgb(53, 68, 145);
+}
+
+.link-item:active{
+    color: white;
+}
+
+.footer-disclaimer{
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 575px){
+    header .title{
+        font-size: 1.8rem;
+        padding: 0.9rem;
+    }
+
+    .footer-links{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-wrapper{
+        flex-direction: column;
+        padding: 0.6rem;
+    }
+
+    .icon-container{
+        width: 60%;
+        display: flex;
+        justify-content: space-around;
+        align-self: center;
+    }
+    
+    .footer-links{
+        padding: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .link-item{}
+
+
+    header .auth-options button{
+        font-size: 0.8rem;
+        padding: 0 0.5rem;
+    }
+
+    .team-container{
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+    }
+
+    .searchbar{
+        width: 100%;
+    }
+
+    .player-container{
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .player-info table{
+        width: 100%;
+        margin: 0;
+    }
+
+    .player-pic{
+        width: auto;
+        margin: 0.3rem auto;
+    }
+
+    .player-info table thead tr, .player-info table tbody tr{
+        font-size: 0.68rem;
+        width: 100%;
+    }
+
+    .chart-container{
+        width: 100%;
+    }
+
+    .chart-container:first-child{
+        height: 100%;
+    }
+
+    .career-container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .chart-area{
+        flex-direction: row;
+        width: 100%;
+        height: auto;
+    }
+
+    /* .player-info table thead tr th{
+        font-size: 0.5rem;
+        padding: 0.2rem;
+    }
+
+    .player-info table tbody tr td{
+        font-size: 0.4rem;
+    } */
+
+    .game-container{
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+
+
+    .score-item{
+        width: 100%;
+        padding-bottom: 1rem;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .credential-container{
+        width: 100%;
+    }
+
+    .credential-wrapper{
+        width: 80%;
+    }
+
+    .form input[type="submit"]{
+        width: 60%;
+    }
+
+    .page{
+        margin: 0;
+        padding: 0;
+    }
+
+    .faceoff-container{
+        width: 100%;
+    }
+
+    .record-container{
+        width: 100%;
+        overflow: auto;
+    }
+
+    .record-container table thead tr th{
+        font-size: 0.7rem;
+    }
+
+    .powerplay-container{
+        width: 100%;
+        margin: 0;
+    }
+
+    .main-container{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .wins-container{
+        width: 100%;
+        margin-bottom: 1rem !important;
+    }
+
+    .percent-wrapper{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .schedule-wrapper{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .game-container{
+        width: 100%;
+    }
+
+    .searchbar form input[type="date"]{
+        width: 15%;
+    }
+
+    .score-item{
+        margin: 0;
+    }
+}
+/* 
+@media screen and (min-width: 550px) and (max-width: 768px){
+    .chart-area{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .chart-container{
+        width: 100%;
+    }
+
+    .playerstat-wrapper{
+        flex-direction: column;
+    }
+
+    .player-info table thead tr th{
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+
+    .player-info table tbody tr td{
+        font-size: 0.9rem;
+    }
+
+    .score-item{
+        grid-template-rows: 1fr auto;
+    }
+
+    .home .away{
+        height: 90px;
+    }
+
+    .sidebar{
+        grid-column: 1/2;
+    }
+
+
+    .credential-container{
+        width: 60%;
+    }
+
+} */
