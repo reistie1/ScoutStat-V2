@@ -1,0 +1,33 @@
+Teams = {
+    "New Jersey Devils":{'num': 1},
+    "New York Islanders":{'num': 2},
+    "New York Rangers":{'num': 3},
+    "Philadelphia Flyers":{'num': 4},
+    "Pittsburgh Penguins":{'num': 5},
+    "Boston Bruins":{'num': 6},
+    "Buffalo Sabres":{'num': 7},
+    "Montreal Canadians":{'num': 8},
+    "Ottawa Senators":{'num': 9},
+    "Toronto Maple Leafs":{'num': 10},
+    "Carolina Hurricanes":{'num': 12},
+    "Florida Panthers":{'num': 13},
+    "Tampa Bay Lightning":{'num': 14},
+    "Washington Capitals":{'num': 15},
+    "Chicago Blackhawks":{'num': 16},
+    "Detroit Red Wings":{'num': 17},
+    "Nashville Predators":{'num': 18},
+    "St.Louis Blues":{'num': 19},
+    "Calgary Flames":{'num': 20},
+    "Colorado Avalanche":{'num': 21},
+    "Edmonton Oilers":{'num': 22},
+    "Vancouver Canucks":{'num': 23},
+    "Anaheim Ducks":{'num': 24},
+    "Dallas Stars":{'num': 25},
+    "Los Angeles Kings":{'num': 26},
+    "San Jose Sharks":{'num': 28},
+    "Columbus Blue Jackets":{'num': 29},
+    "Minnesota Wild":{'num': 30},
+    "Vegas Golden Knights":{'num': 54}
+}
+
+module.exports = Teams
