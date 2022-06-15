@@ -11,7 +11,7 @@ export default function Header() {
                 <Link to="/teams">
                     <h2 className="title">Scout Stat</h2>
                 </Link>
-                <AuthOptions />
+                {/* <AuthOptions /> */}
             </header>
         </>
     )

@@ -71,8 +71,8 @@ export default function TeamReports() {
     }
 
     useEffect(() => {
-        let token = localStorage.getItem("token")
-        if(!token) history.push('login')
+        // let token = localStorage.getItem("token")
+        // if(!token) history.push('login')
         const value = teamstat.name === undefined ? 'calgary flames' : teamstat.name.toLowerCase()
         setColor(TeamColors[value])
     })

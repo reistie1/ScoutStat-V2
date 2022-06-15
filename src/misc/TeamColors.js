@@ -99,7 +99,7 @@ export default {
         "color1": '#006272',
         "color2": '#D06424'
     },
-    "seattle kracken":{
+    "seattle kraken":{
         "color1": '#609270',
         "color2": '#4E6486'
     },

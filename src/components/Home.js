@@ -5,12 +5,13 @@ import UserContext from '../context/UserContext'
 
 
 export default function Home() {
-    const {userData} = useContext(UserContext)
+    // const {userData} = useContext(UserContext)
     const history = useHistory()
 
     useEffect(() => {
-        console.log(userData)
-        if(!userData.user) history.push("/login")
+        history.push("/teams");
+        // console.log(userData)
+        // if(!userData.user) history.push("/login")
     })
 
     return (
