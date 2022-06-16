@@ -30,7 +30,7 @@
 
 .team-wrapper:hover
 {
-    cursor: pointer;
+    cursor: crosshair;
 }
 
 .team-wrapper:hover
