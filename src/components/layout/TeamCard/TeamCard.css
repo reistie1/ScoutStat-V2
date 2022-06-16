@@ -30,6 +30,11 @@
 
 .team-wrapper:hover
 {
+    cursor: pointer;
+}
+
+.team-wrapper:hover
+{
     transform: scale(1.1);
 }
 
