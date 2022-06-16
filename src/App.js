@@ -9,6 +9,7 @@ import Register from './components/auth/Register'
 import Layout from './components/layout/Layout'
 import Header from './components/layout/Header'
 import UserContext from './context/UserContext'
+import PlayerCard from '../src/components/layout/PlayerCard/PlayerCard';
 import Axios from 'axios'
 import Cookie from 'react-cookies'
 import './styles.css'
@@ -47,6 +48,7 @@ function App() {
           <Switch >
             <Route exact path="/" component={Layout}/>
             <Route path="/teams" component={TeamReports}/>
+            <Route path="/players" component={PlayerCard}/>
             {/* <Route path="/login" component={Login}/> */}
             {/* <Route path="/register" component={Register}/> */}
             <Route path="/players" component={PlayerReport}/>

@@ -3,13 +3,17 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 import dataService from '../../services/dataService';
 import TeamCard from '../layout/TeamCard/TeamCard';
+import PlayerCard from '../layout/PlayerCard/PlayerCard';
 
 export default class Layout extends Component {
     constructor(props)
     {
         super(props);
         this.state = {
-            teams: []
+            teams: [],
+            type: 'teams',
+            players: [],
+            team: ''
         }
         this.getSingleTeam = this.getSingleTeam.bind(this);
     }
@@ -21,9 +25,11 @@ export default class Layout extends Component {
         });
     }
 
-    getSingleTeam(id)
+    getSingleTeam(id, teamName)
     {
-        dataService.fetchTeamAsync(() => {}, id);
+        dataService.fetchTeamAsync((data) => {
+            this.setState({type: 'players', players: data, team: teamName})
+        }, id);
     }
 
     render() {
@@ -32,8 +38,13 @@ export default class Layout extends Component {
                 {/* <Sidebar/> */}
                 <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
                     {
+                        this.state.type === "teams" ?
                         this.state.teams.map((value,index) => {
                             return <TeamCard key={value.id} team={value} getTeam = {this.getSingleTeam} />
+                        })
+                        :
+                        this.state.players.map((value,index) => {
+                            return <PlayerCard key={index} player={value} team={this.state.team}/>
                         })
                     }
                 </div>

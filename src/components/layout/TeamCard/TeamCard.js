@@ -39,19 +39,16 @@ export default class TeamCard extends Component {
     render() {
         console.log(this.state);
         return (
-            <div className="team-wrapper">
+            <div className="team-wrapper" onClick={() => this.props.getTeam(this.props.team.id, this.props.team.name)}>
                 <div className="top-triangle" style={{borderLeft: `300px solid ${this.state.primaryColour}`, borderBottom: '150px solid transparent'}}></div>
                 <div className="bottom-triangle" style={{borderRight: `300px solid ${this.state.secondaryColour}`, borderTop: '150px solid transparent'}}></div>
-
                 <div className="team-info-wrapper">
                     <h6 style={{zIndex: 20}}>{this.props.team.name}</h6>
-                    <p className="select-team" onClick={() => this.props.getTeam(this.props.team.id)}>Select Team</p>
                     <div className="team-info-container" style={{color: `${this.state.primaryColour}`}}>
                         <p className="team-info-item">Division: {this.props.team.division.name}</p>
                         <p className="team-info-item">Conference: {this.props.team.conference.name}</p>
                     </div>
                 </div>
-                
             </div>
         )
     }

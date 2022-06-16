@@ -18,8 +18,8 @@ const dataService = {
     {
         Axios.get(url + "/api/v1/teams/" + id + "?expand=team.roster")
         .then(response => {
-            // cb(response.data.teams);
-            console.log(response);
+            cb(response.data.teams[0].roster.roster);
+            console.log(response.data.teams[0].roster.roster);
         })
         .catch(e => {
             console.log(e);
