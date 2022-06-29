@@ -16,7 +16,7 @@ export default function ScoreContainer(props) {
               <div className="home">
                 <div className="home-top" style={{backgroundColor: homeColor['color1'], color: 'white'}}>
                     <p>{props.home.team.name}</p>
-                    <p>{`${props.home.leagueRecord.wins} - ${props.home.leagueRecord.losses} - ${props.home.leagueRecord.ot} `}</p>  
+                    <p>{`${props.home.leagueRecord.wins} - ${props.home.leagueRecord.losses} - ${props.home.leagueRecord.ot ?? 0} `}</p>  
                 </div>
                 <div className="home-bottom" style={{backgroundColor: homeColor['color2'], color: 'white'}}>
                     <h5>{props.home.score}</h5>

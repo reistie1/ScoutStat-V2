@@ -16,7 +16,9 @@ export default class PlayerContainer extends Component {
         let yearSets = [];
         for(var year = 2000; year <= new Date().getFullYear(); year++)
         {
-            yearSets.push(year.toString()+(year+1).toString());
+            yearSets.push(year.toString());
+
+            // yearSets.push(year.toString()+(year+1).toString());
         }
 
         this.setState({yearSets: yearSets});

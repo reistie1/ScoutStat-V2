@@ -27,14 +27,28 @@ const dataService = {
     },
     async fetchPlayerDataAsync(cb, id, year)
     {
-        Axios.get(url + "/api/v1/people/"+ id +"/stats?stats=homeAndAway&season=" + year)
-        .then(response => {
-           
-            console.log(response.data);
-        })
-        .catch(e => {
-            console.log(e);
-        });
+        var data = []
+        console.log(url + "/api/v1/people/"+ id +"/stats?stats=statsSingleSeason&season=" + year + (parseInt(year)+1))
+        for(var currentYear = year.toString().slice(0,4); currentYear <= new Date().getFullYear(); currentYear++)
+        {
+            Axios.get(url + "/api/v1/people/"+ id +"/stats?stats=statsSingleSeason&season=" + currentYear + (parseInt(currentYear)+1))
+            .then(response => {
+                if(response.data.stats[0].splits[0]?.stat !== undefined)
+                {
+                    data.concat(response.data.stats[0].splits[0]?.stat)
+                    console.log(response.data.stats[0].splits[0]?.stat)
+                }
+                
+                // if(response.data.splits[0].length > 0)
+                // {
+                //     console.log(response.data.splits[0].stats)
+                // }                
+            })
+            .catch(e => {
+                console.log(e);
+            });
+        }
+        
     },
     async fetchScheduleDataAsync()
     {
