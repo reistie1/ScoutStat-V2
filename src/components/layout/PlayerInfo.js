@@ -10,7 +10,7 @@ export default function PlayerInfo(props) {
     const keys = Object.keys(props.info)
     return (
         <div className="player-container">
-            <div className="player-pic" style={{backgroundColor: color['color2']}}>
+            {/* <div className="player-pic" style={{backgroundColor: color['color2']}}>
                 <img src={props.info.picture} alt="headshot"/>
             </div>
             <div className="player-info" style={{backgroundColor: color['color1']}}>
@@ -37,7 +37,7 @@ export default function PlayerInfo(props) {
                 <div style={{backgroundColor: color['color2']}}>
                     <h5>{keys[6].charAt(0).toUpperCase()+keys[6].slice(1)}</h5>
                     <h6>{props.info.age}</h6>
-                </div>
+                </div> */}
                 
                 {/* <table>
                     <thead>
@@ -62,7 +62,7 @@ export default function PlayerInfo(props) {
                     </tbody>
                     <tfoot></tfoot>
                 </table> */}
-            </div>
+            {/* </div> */}
         </div>
     )
 }

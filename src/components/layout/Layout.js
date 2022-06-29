@@ -36,7 +36,7 @@ export default class Layout extends Component {
         return (
             <div>
                 {/* <Sidebar/> */}
-                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', padding: '1rem 0'}}>
                     {
                         this.state.type === "teams" ?
                         this.state.teams.map((value,index) => {

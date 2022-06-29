@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TeamColours from '../../../misc/TeamColors';
+import './PlayerCard.css';
 
 
 export default class PlayerCard extends Component {
@@ -37,11 +38,12 @@ export default class PlayerCard extends Component {
     }
     
     render() {
+        console.log(this.props.player)
         return (
             <div>
-                <div style={{backgroundColor: `${this.state.primaryColour}`, width: '200px', height: '200px', margin: '0.5rem', textAlign: 'center', padding: '1rem'}}>
-                    <div style={{color: `${this.state.secondaryColour}`}}>
-                        <h6 style={{zIndex: 20}}>{this.props.player.person.fullName}</h6>
+                <div className="player-card" onClick={(e) => {window.location = "/player"; window.localStorage.setItem("selectedPlayer", this.props.player.person.fullName); window.localStorage.setItem("selectedPlayerId", this.props.player.person.id)}}>
+                    <div style={{backgroundColor: `${this.state.primaryColour}`, color: `${this.state.secondaryColour}`, padding: '0.1rem'}}>
+                        <h6>{this.props.player.person.fullName}</h6>
                         <h6>{this.props.player.jerseyNumber}</h6>
                         <h6>{this.props.player.position.name}</h6>
                     </div>

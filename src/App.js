@@ -10,6 +10,7 @@ import Layout from './components/layout/Layout'
 import Header from './components/layout/Header'
 import UserContext from './context/UserContext'
 import PlayerCard from '../src/components/layout/PlayerCard/PlayerCard';
+import PlayerContainer from '../src/components/layout/PlayerContainer';
 import Axios from 'axios'
 import Cookie from 'react-cookies'
 import './styles.css'
@@ -49,10 +50,9 @@ function App() {
             <Route exact path="/" component={Layout}/>
             <Route path="/teams" component={TeamReports}/>
             <Route path="/players" component={PlayerCard}/>
-            {/* <Route path="/login" component={Login}/> */}
-            {/* <Route path="/register" component={Register}/> */}
             <Route path="/players" component={PlayerReport}/>
             <Route path="/schedule" component={Schedule}/>
+            <Route path="/player" component={PlayerContainer}/>
           </Switch>
         </div>
         {/* </UserContext.Provider> */}

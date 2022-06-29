@@ -1,0 +1,32 @@
+.player-card
+{
+    width: 200px;
+    height: 150px;
+    margin: 0.5rem;
+    border: 1px solid gray;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.player-card:hover
+{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.player-info
+{
+    width: 100%;
+}
+
+.player-info:first
+{
+    position: relative;
+    top: 0;
+}
+
+.player-info:last
+{
+    position: relative;
+    bottom: 0;
+}

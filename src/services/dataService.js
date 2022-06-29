@@ -25,9 +25,16 @@ const dataService = {
             console.log(e);
         });
     },
-    async fetchPlayerAsync()
+    async fetchPlayerDataAsync(cb, id, year)
     {
-
+        Axios.get(url + "/api/v1/people/"+ id +"/stats?stats=homeAndAway&season=" + year)
+        .then(response => {
+           
+            console.log(response.data);
+        })
+        .catch(e => {
+            console.log(e);
+        });
     },
     async fetchScheduleDataAsync()
     {
