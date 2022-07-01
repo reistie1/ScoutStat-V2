@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import dataService from '../../services/dataService';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
+import StatFilter from './StatFilter';
 
 export default class PlayerContainer extends Component {
     constructor(props)
     {
         super(props);
         this.state = {
-            yearSets: [],
             selectedYear: '',
             player: null
         }
@@ -15,37 +15,20 @@ export default class PlayerContainer extends Component {
 
     componentDidMount()
     {
-        let yearSets = [];
-        for(var year = 2000; year <= new Date().getFullYear(); year++)
-        {
-            yearSets.push(year.toString());
-
-            // yearSets.push(year.toString()+(year+1).toString());
-        }
-        dataService.fetchPlayerInfoAsync((resp) => {this.setState({player: resp})}, window.localStorage.getItem("selectedPlayerId"));
-        this.setState({yearSets: yearSets});
+        dataService.fetchPlayerInfoAsync((resp) => { this.setState({...this.state, player: resp}) }, window.localStorage.getItem("selectedPlayerId"));
     }
 
-    componentDidUpdate(prevProps, prevState)
-    {
-        if(prevState.selectedYear !== this.state.selectedYear)
-        {
-            //dataService.fetchPlayerDataAsync(() => {}, window.localStorage.getItem("selectedPlayerId"), this.state.selectedYear);
-        }
-    }
+    componentDidUpdate(prevProps, prevState){}
 
 
     render() {
         return (
-            <div style={{padding: '1rem'}}>
-                <select onChange={(e) => { this.setState({selectedYear: e.target.value}) }}>
-                {
-                    this.state.yearSets.map((value, index) => { return <option key={index} value={value}>{value}</option> })
-                }
-                </select>
-                {
-                    this.state.player !== null ? <PlayerInfo player={this.state.player} /> : null
-                }
+            <div className="container col-12">
+            <h1 style={{marginBottom: '2rem', textAlign: 'center'}}>Player Information</h1>
+            {
+                this.state.player !== null ? <PlayerInfo player={this.state.player} /> : null
+            }
+            <StatFilter />
             </div>
         ) 
     }
