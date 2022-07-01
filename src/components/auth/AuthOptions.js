@@ -1,6 +1,5 @@
 import React, {useContext, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
-import userContext from '../../context/UserContext'
 // import Cookie from 'react-cookies'
 
 export default function AuthOptions() {

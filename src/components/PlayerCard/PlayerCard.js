@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TeamColours from '../../../misc/TeamColors';
+import TeamColours from '../../misc/TeamColors';
 import './PlayerCard.css';
 
 

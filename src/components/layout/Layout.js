@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
+import Footer from '../Footer/Footer';
+import Sidebar from '../Sidebar/Sidebar';
 import dataService from '../../services/dataService';
-import TeamCard from '../layout/TeamCard/TeamCard';
-import PlayerCard from '../layout/PlayerCard/PlayerCard';
+import TeamCard from '../TeamCard/TeamCard';
+import PlayerCard from '../PlayerCard/PlayerCard';
 
 export default class Layout extends Component {
     constructor(props)

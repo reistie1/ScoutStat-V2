@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import dataService from '../../services/dataService';
+import PlayerInfo from '../PlayerInfo/PlayerInfo';
 
 export default class PlayerContainer extends Component {
     constructor(props)
@@ -7,7 +8,8 @@ export default class PlayerContainer extends Component {
         super(props);
         this.state = {
             yearSets: [],
-            selectedYear: ''
+            selectedYear: '',
+            player: null
         }
     }
 
@@ -20,7 +22,7 @@ export default class PlayerContainer extends Component {
 
             // yearSets.push(year.toString()+(year+1).toString());
         }
-
+        dataService.fetchPlayerInfoAsync((resp) => {this.setState({player: resp})}, window.localStorage.getItem("selectedPlayerId"));
         this.setState({yearSets: yearSets});
     }
 
@@ -28,7 +30,7 @@ export default class PlayerContainer extends Component {
     {
         if(prevState.selectedYear !== this.state.selectedYear)
         {
-            dataService.fetchPlayerDataAsync(() => {}, window.localStorage.getItem("selectedPlayerId"), this.state.selectedYear);
+            //dataService.fetchPlayerDataAsync(() => {}, window.localStorage.getItem("selectedPlayerId"), this.state.selectedYear);
         }
     }
 
@@ -38,10 +40,13 @@ export default class PlayerContainer extends Component {
             <div style={{padding: '1rem'}}>
                 <select onChange={(e) => { this.setState({selectedYear: e.target.value}) }}>
                 {
-                    this.state.yearSets.map((value) => { return <option value={value}>{value}</option> })
+                    this.state.yearSets.map((value, index) => { return <option key={index} value={value}>{value}</option> })
                 }
                 </select>
+                {
+                    this.state.player !== null ? <PlayerInfo player={this.state.player} /> : null
+                }
             </div>
-        )
+        ) 
     }
 }

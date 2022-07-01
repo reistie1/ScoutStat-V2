@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 import Axios from 'axios'
-import ScoreContainer from '../layout/ScoreContainer'
+import ScoreContainer from '../ScoreContainer/ScoreContainer'
 import SearchIcon from '@material-ui/icons/Search';
-import Footer from '../layout/Footer'
-import Sidebar from '../layout/Sidebar'
+import Footer from '../Footer/Footer'
+import Sidebar from '../Sidebar/Sidebar'
 import ErrorNotice from '../../misc/errorNotice'
 import '../../styles.css'
 
@@ -49,7 +49,7 @@ export default function Schedule() {
         }
     }
     getScores()
-      }, []);
+      }, [axiosConfig, history, team]);
 
 
     const submitFunc = async (e) => {

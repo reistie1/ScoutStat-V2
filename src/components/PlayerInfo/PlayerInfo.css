@@ -1,0 +1,36 @@
+.info-container{
+    border: 1px solid gray;
+    border-radius: 4px;
+    width: 50%;
+    height: auto;
+    box-shadow: 10px 20px solid gray;
+}
+
+.player-name
+{
+   text-align: center;
+   width: 100%; 
+   z-index: 1;
+}
+
+.info-item-container
+{
+    width: 50%;
+    z-index: 4;
+}
+
+.info-item-container
+{
+    padding: 0.25rem 2rem;
+}
+
+.info-item-container:first
+{
+    float: left;
+}
+
+.info-item-container:nth-of-type(1)
+{
+    float: right;
+
+}

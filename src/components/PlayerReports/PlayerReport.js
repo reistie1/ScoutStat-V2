@@ -1,14 +1,13 @@
 import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
-import PlayerInfo from '../layout/PlayerInfo'
-import PlayerContainer from '../layout/PlayerContainer'
-import GoalieContainer from '../layout/GoalieContainer'
-import Axios from 'axios'
-import Sidebar from '../layout/Sidebar'
-import Footer from '../layout/Footer'
-import SearchIcon from '@material-ui/icons/Search'
-import ErrorNotice from '../../misc/errorNotice'
-import '../../styles.css'
+import {useHistory} from 'react-router-dom';
+import PlayerInfo from '../PlayerInfo/PlayerInfo';
+import PlayerContainer from '../PlayerContainer/PlayerContainer';
+import GoalieContainer from '../GoalieContainer/GoalieContainer';
+import Axios from 'axios';
+import Sidebar from '../Sidebar/Sidebar';
+import Footer from '../Footer/Footer';
+import ErrorNotice from '../../misc/errorNotice';
+import SearchIcon from '@material-ui/icons/Search';
 
 export default function TeamReports(props) {
     const [name, SetName] = useState('')

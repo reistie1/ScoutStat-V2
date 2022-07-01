@@ -1,18 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import Home from './components/Home'
-import Login from './components/auth/Login'
-import Schedule from './components/auth/Schedule'
-import TeamReports from './components/auth/TeamReports'
-import PlayerReport from './components/auth/PlayerReport'
-import Register from './components/auth/Register'
-import Layout from './components/layout/Layout'
-import Header from './components/layout/Header'
-import UserContext from './context/UserContext'
-import PlayerCard from '../src/components/layout/PlayerCard/PlayerCard';
-import PlayerContainer from '../src/components/layout/PlayerContainer';
-import Axios from 'axios'
-import Cookie from 'react-cookies'
+import Schedule from './components/Schedule/Schedule'
+import TeamReports from './components/TeamReports/TeamReports'
+import PlayerReport from './components/PlayerReports/PlayerReport'
+import Layout from './components/Layout/Layout'
+import Header from './components/Header/Header'
+import PlayerCard from '../src/components/PlayerCard/PlayerCard';
+import PlayerContainer from '../src/components/PlayerContainer/PlayerContainer';
 import './styles.css'
 
 
