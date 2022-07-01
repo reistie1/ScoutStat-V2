@@ -8,13 +8,6 @@
     line-height: 1px;
 }
 
-.player-name
-{
-   text-align: center;
-   width: 100%; 
-   z-index: 1;
-}
-
 .name-decorators-top
 {
     border-bottom: 20px solid red;

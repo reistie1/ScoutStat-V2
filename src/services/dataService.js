@@ -37,10 +37,10 @@ const dataService = {
             console.log(e);
         });
     },
-    async fetchPlayerDataAsync(cb, id, year)
+    async fetchPlayerDataAsync(cb, id, requestFilters)
     {
         
-        for(var currentYear = year.toString().slice(0,4); currentYear <= new Date().getFullYear(); currentYear++)
+        for(var currentYear = requestFilters.year.toString().slice(0,4); currentYear <= new Date().getFullYear(); currentYear++)
         {
             Axios.get(url + "/api/v1/people/"+ id +"/stats?stats=statsSingleSeason&season=" + currentYear + (parseInt(currentYear)+1))
             .then(response => {
