@@ -1,7 +1,6 @@
 import Axios from 'axios';
 
 let url = 'https://statsapi.web.nhl.com';
-var data = [];
 
 const dataService = {
     async fetchTeamsAsync(cb)
@@ -39,24 +38,23 @@ const dataService = {
     },
     async fetchPlayerDataAsync(cb, id, requestFilters)
     {
-        
-        for(var currentYear = requestFilters.year.toString().slice(0,4); currentYear <= new Date().getFullYear(); currentYear++)
+        var playerData = []
+        for(var currentYear = requestFilters.startYear; currentYear <= requestFilters.endYear; currentYear++)
         {
-            Axios.get(url + "/api/v1/people/"+ id +"/stats?stats=statsSingleSeason&season=" + currentYear + (parseInt(currentYear)+1))
+            var stats = await Axios.get(url + "/api/v1/people/"+ id +"/stats?stats=statsSingleSeason&season=" + currentYear + (parseInt(currentYear)+1))
             .then(response => {
                 if(response.data.stats[0].splits[0]?.stat !== undefined)
                 {
-                    formatPlayerData({season: response.data.stats[0].splits[0]?.season, data: response.data.stats[0].splits[0]?.stat})
-                    
+                   return {season: response.data.stats[0].splits[0]?.season, data: response.data.stats[0].splits[0]?.stat}
                 }
-                
             })
             .catch(e => {
                 console.log(e);
             });
+
+            playerData.push(stats);
         }
-        console.log(data);
-        
+        cb(playerData);        
     },
     async fetchScheduleDataAsync()
     {
@@ -64,11 +62,5 @@ const dataService = {
     }
 }
 
-const formatPlayerData = (input_data) => {
-    console.log(input_data, data);
-    data.concat(input_data);
-    console.log(input_data, data);
-
-}
 
 export default dataService;

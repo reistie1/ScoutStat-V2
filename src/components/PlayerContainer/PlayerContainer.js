@@ -10,9 +10,10 @@ export default class PlayerContainer extends Component {
         super(props);
         this.state = {
             player: null,
+            playerStats: [],
             yearSpan: {
-                start: '',
-                end: ''
+                start: 'none',
+                end: 'none'
             }
         }
     }
@@ -20,6 +21,35 @@ export default class PlayerContainer extends Component {
     componentDidMount()
     {
         dataService.fetchPlayerInfoAsync((resp) => { this.setState({...this.state, player: resp}) }, window.localStorage.getItem("selectedPlayerId"));
+    }
+
+    componentDidUpdate(prevProps, prevState)
+    {
+        if(this.state.yearSpan.end !== prevState.yearSpan.end)
+        {
+            dataService.fetchPlayerDataAsync((data) => {this.setState({playerStats: data})}, window.localStorage.getItem("selectedPlayerId"), {startYear: this.state.yearSpan.start, endYear: this.state.yearSpan.end})
+        }
+        if(this.state.playerStats !== prevState.playerStats)
+        {
+            var GroupedStats;
+            if(this.state.playerStats.length > 0)
+            {
+                GroupedStats = Object.keys(this.state.playerStats[0].data);
+                //GroupedStats = GroupedStats.map(value => { return {[value]: []} });
+
+                console.log(GroupedStats)
+
+                // GroupedStats = this.state.playerStats.map((value, index) => {
+                //     return Object.keys(value.data).map((innerValue, innerIndex) => {
+                //         console.log(GroupedStats[innerValue]);
+                //         return innerValue;
+                //         //return GroupedStats[innerValue] = ({season: value.season, value: value.data[innerValue]});
+                //     });
+                // });
+            }
+            
+
+        }
     }
 
 
