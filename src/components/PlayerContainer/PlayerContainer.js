@@ -4,6 +4,36 @@ import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import StatFilter from './StatFilter';
 import StatChart from './StatChart';
 
+const playerStats = {
+    assists: [],
+    blocked: [],
+    evenTimeOnIce: [],
+    evenTimeOnIcePerGame: [],
+    faceOffPct: [],
+    gameWinningGoals: [],
+    games: [],
+    goals: [],
+    hits: [],
+    overTimeGoals: [],
+    penaltyMinutes: [],
+    pim: [],
+    plusMinus: [],
+    points: [],
+    powerPlayGoals: [],
+    powerPlayPoints: [],
+    powerPlayTimeOnIce: [],
+    powerPlayTimeOnIcePerGame: [],
+    shifts: [],
+    shortHandedGoals: [],
+    shortHandedPoints: [],
+    shortHandedTimeOnIce: [],
+    shortHandedTimeOnIcePerGame: [],
+    shotPct: [],
+    shots: [],
+    timeOnIce: [],
+    timeOnIcePerGame: []
+}
+
 export default class PlayerContainer extends Component {
     constructor(props)
     {
@@ -11,6 +41,7 @@ export default class PlayerContainer extends Component {
         this.state = {
             player: null,
             playerStats: [],
+            stats: null,
             yearSpan: {
                 start: 'none',
                 end: 'none'
@@ -31,33 +62,28 @@ export default class PlayerContainer extends Component {
         }
         if(this.state.playerStats !== prevState.playerStats)
         {
-            var GroupedStats;
             if(this.state.playerStats.length > 0)
             {
-                GroupedStats = Object.keys(this.state.playerStats[0].data);
-                //GroupedStats = GroupedStats.map(value => { return {[value]: []} });
+                let filteredStats = this.state.playerStats.filter(value => {return value !== undefined}).map((value, index) => {
+                    return Object.keys(value.data).map((innerValue, innerIndex) => {
+                        return playerStats[innerValue].push({season: value.season, dataPoint: value.data[innerValue]});
+                    });
+                });
 
-                console.log(GroupedStats)
-
-                // GroupedStats = this.state.playerStats.map((value, index) => {
-                //     return Object.keys(value.data).map((innerValue, innerIndex) => {
-                //         console.log(GroupedStats[innerValue]);
-                //         return innerValue;
-                //         //return GroupedStats[innerValue] = ({season: value.season, value: value.data[innerValue]});
-                //     });
-                // });
+                this.setState({stats: filteredStats});
             }
-            
-
         }
     }
 
 
     render() {
-        console.log(this.state)
+        console.log(this.state, this.props);
         return (
             <div className="container col-12">
-                <h3 className="text-left p-3">Player Information</h3>
+                <div className="row d-flex justify-content-between">
+                    <h3 className="text-left p-3 col-4">Player Information</h3>
+                    <a className="col-3 p-3 text-right" href="/" aria-label="home link">Go back to team selection</a>
+                </div>
                 <div className="col-12 d-flex flex-row">
                     <div className="col-4">
                     {
@@ -76,7 +102,12 @@ export default class PlayerContainer extends Component {
                     <div className="col-12 d-flex flex-wrap flex-row justify-content-evenly p-3">
                     
                     {
-                        [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((value, index) => { return <StatChart name="Goals"/> })
+                        Object.keys(playerStats).map((value, index) => { 
+                            if(!(value.indexOf("Time") > -1 || value.indexOf("time") > -1))
+                            {
+                                return <StatChart key={index} name={value} data={playerStats[value]}/>
+                            }
+                        })
                     }
                     </div> 
                 </div>

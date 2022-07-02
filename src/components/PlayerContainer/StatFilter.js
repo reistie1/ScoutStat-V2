@@ -31,7 +31,6 @@ export default class StatFilter extends Component {
     }
 
     render() {
-        console.log(this.state, this.props);
         return (
             <div className="container col-12 d-flex flex-column justify-content-center p-0 pt-4">
                 <div className="container row justify-content-between p-0">

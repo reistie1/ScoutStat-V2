@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Line} from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 export default class StatChart extends Component {
     constructor(props)
@@ -8,14 +8,14 @@ export default class StatChart extends Component {
         this.state = {}
     }
 
-
     render() {
+        console.log(this.props)
         const data = {
-            labels: ['20112012', '20122013', '20132014', '20142015'],
+            labels: this.props.data.map(value => {return value.season.toString()}),
             datasets: [
                 {
-                    label: "First dataset",
-                    data: [10,39,55,32],
+                    label: this.props.name,
+                    data: this.props.data.map(value => {return value.dataPoint}),
                     fill: true,
                     backgroundColor: "rgba(75,192,192,0.2)",
                     borderColor: "rgba(75,192,192,1)"

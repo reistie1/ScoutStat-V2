@@ -37,7 +37,6 @@ export default class TeamCard extends Component {
     }
 
     render() {
-        console.log(this.state);
         return (
             <div className="team-wrapper" onClick={() => this.props.getTeam(this.props.team.id, this.props.team.name)}>
                 <div className="top-triangle" style={{borderLeft: `300px solid ${this.state.primaryColour}`, borderBottom: '150px solid transparent'}}></div>

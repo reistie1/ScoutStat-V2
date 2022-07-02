@@ -38,7 +38,6 @@ export default class PlayerCard extends Component {
     }
     
     render() {
-        console.log(this.props.player)
         return (
             <div>
                 <div className="player-card" onClick={(e) => {window.location = "/player"; window.localStorage.setItem("selectedPlayer", this.props.player.person.fullName); window.localStorage.setItem("selectedPlayerId", this.props.player.person.id)}}>
