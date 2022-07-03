@@ -11,7 +11,7 @@ export default class StatChart extends Component {
     render() {
         //console.log(this.props)
         const data = {
-            labels: this.props.data.map(value => {return value.season.toString()}),
+            labels: this.props.data.map(value => {return value.season.toString()}).sort(),
             datasets: [
                 {
                     label: this.props.name,
