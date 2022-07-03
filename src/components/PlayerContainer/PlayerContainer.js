@@ -34,6 +34,32 @@ const playerStats = {
     timeOnIcePerGame: []
 }
 
+const goalieStats = {
+    evenSaves: [],
+    evenShots: [],
+    evenStrengthSavePercentage: [],
+    games: [],
+    gamesStarted: [],
+    goalAgainstAverage: [],
+    goalsAgainst: [],
+    losses: [],
+    ot: [],
+    powerPlaySavePercentage: [],
+    powerPlaySaves: [],
+    powerPlayShots: [],
+    savePercentage: [],
+    saves: [],
+    shortHandedSavePercentage: [],
+    shortHandedSaves: [],
+    shortHandedShots: [],
+    shotsAgainst: [],
+    shutouts: [],
+    ties: [],
+    timeOnIce: [],
+    timeOnIcePerGame: [],
+    wins: []
+}
+
 export default class PlayerContainer extends Component {
     constructor(props)
     {
@@ -42,11 +68,9 @@ export default class PlayerContainer extends Component {
             player: null,
             playerStats: [],
             stats: null,
-            yearSpan: {
-                start: 'none',
-                end: 'none'
-            }
+            yearSpan: { start: 'none', end: 'none' }
         }
+        this.chartFilterFn = this.chartFilterFn.bind(this);
     }
 
     componentDidMount()
@@ -56,7 +80,7 @@ export default class PlayerContainer extends Component {
 
     componentDidUpdate(prevProps, prevState)
     {
-        if(this.state.yearSpan.end !== prevState.yearSpan.end)
+        if(this.state.yearSpan !== prevState.yearSpan && this.state.yearSpan !== 'none')
         {
             dataService.fetchPlayerDataAsync((data) => {this.setState({playerStats: data})}, window.localStorage.getItem("selectedPlayerId"), {startYear: this.state.yearSpan.start, endYear: this.state.yearSpan.end})
         }
@@ -64,26 +88,58 @@ export default class PlayerContainer extends Component {
         {
             if(this.state.playerStats.length > 0)
             {
-                let filteredStats = this.state.playerStats.filter(value => {return value !== undefined}).map((value, index) => {
-                    return Object.keys(value.data).map((innerValue, innerIndex) => {
-                        return playerStats[innerValue].push({season: value.season, dataPoint: value.data[innerValue]});
+                var filteredStats = this.state.playerStats.filter(value => {return value !== undefined});
+                if(this.state.player && this.state.player.primaryPosition.code === 'G')
+                {
+                    filteredStats = filteredStats.map((value, index) => {
+                        return Object.keys(value.data).map((innerValue, innerIndex) => {
+                            return goalieStats[innerValue].push({season: value.season, dataPoint: value.data[innerValue]});
+                        });
                     });
-                });
+                }
+                else
+                {
+                    filteredStats = filteredStats.map((value, index) => {
+                        return Object.keys(value.data).map((innerValue, innerIndex) => {
+                            if(innerIndex > 0)
+                            {
+                                return playerStats[innerValue].push({season: value.season, dataPoint: value.data[innerValue]});
+                            }
+                        });
+                    });
+                }
 
-                this.setState({stats: filteredStats});
+                console.log(playerStats);
+                //this.setState({stats: filteredStats});
+            }
+        }
+    }
+
+    chartFilterFn = (value, index) => {
+        if(!(value.indexOf("Time") > -1 || value.indexOf("time") > -1))
+        {
+            if(this.state.player && this.state.player.primaryPosition.code === 'G')
+            {
+                return <StatChart key={index} name={value} data={goalieStats[value]}/>
+            }
+            else
+            {
+                return <StatChart key={index} name={value} data={playerStats[value]}/>
             }
         }
     }
 
 
     render() {
-        console.log(this.state, this.props);
+        // console.log(this.state, this.props, playerStats);
         return (
             <div className="container col-12">
+
                 <div className="row d-flex justify-content-between">
                     <h3 className="text-left p-3 col-4">Player Information</h3>
                     <a className="col-3 p-3 text-right" href="/" aria-label="home link">Go back to team selection</a>
                 </div>
+
                 <div className="col-12 d-flex flex-row">
                     <div className="col-4">
                     {
@@ -92,7 +148,7 @@ export default class PlayerContainer extends Component {
                     </div>
                     <div className="col-8 pl-0">
                     {
-                        this.state.player !== null ? <PlayerInfo player={this.state.player} /> : null
+                        this.state.player && <PlayerInfo player={this.state.player} />
                     }
                     </div>
                 </div>
@@ -100,15 +156,12 @@ export default class PlayerContainer extends Component {
                 <div className="col-12 p-2 mt-2">
                     <h5 className="col-2 text-center">{`Player Stats from ${this.state.yearSpan.start} - ${this.state.yearSpan.end}`}</h5>
                     <div className="col-12 d-flex flex-wrap flex-row justify-content-evenly p-3">
-                    
-                    {
-                        Object.keys(playerStats).map((value, index) => { 
-                            if(!(value.indexOf("Time") > -1 || value.indexOf("time") > -1))
-                            {
-                                return <StatChart key={index} name={value} data={playerStats[value]}/>
-                            }
-                        })
-                    }
+                        { 
+                            this.state.player && this.state.player.primaryPosition.code === 'G' ?
+                            Object.keys(goalieStats).map(this.chartFilterFn) 
+                            :
+                            Object.keys(playerStats).map(this.chartFilterFn) 
+                        }
                     </div> 
                 </div>
             </div>

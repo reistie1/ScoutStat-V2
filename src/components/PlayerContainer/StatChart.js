@@ -9,13 +9,13 @@ export default class StatChart extends Component {
     }
 
     render() {
-        console.log(this.props)
+        //console.log(this.props)
         const data = {
             labels: this.props.data.map(value => {return value.season.toString()}),
             datasets: [
                 {
                     label: this.props.name,
-                    data: this.props.data.map(value => {return value.dataPoint}),
+                    data: this.props.data.map(value => {return value.dataPoint}).sort(),
                     fill: true,
                     backgroundColor: "rgba(75,192,192,0.2)",
                     borderColor: "rgba(75,192,192,1)"

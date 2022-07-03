@@ -27,9 +27,15 @@ export default class Layout extends Component {
 
     getSingleTeam(id, teamName)
     {
-        dataService.fetchTeamAsync((data) => {
-            this.setState({type: 'players', players: data, team: teamName})
-        }, id);
+        let result = window.confirm("Would you like to view team players, click yes or cancel to view team stats.");
+
+        if(result)
+        {
+            dataService.fetchTeamAsync((data) => {
+                this.setState({type: 'players', players: data, team: teamName})
+            }, id);
+        }
+        
     }
 
     render() {

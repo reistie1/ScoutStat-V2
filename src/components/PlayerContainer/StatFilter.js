@@ -6,15 +6,15 @@ export default class StatFilter extends Component {
         super(props);
         this.state = {
             years: [],
-            startYear: '',
-            endYear: '',
+            startYear: 'N/A',
+            endYear: 'N/A',
         }
     }
     
     componentDidMount()
     {
-        let yearArray = [];
-        for(var year = 1993; year <= new Date().getFullYear(); year++)
+        let yearArray = ['N/A'];
+        for(var year = 1993; year <= new Date().getFullYear() - 1; year++)
         {
             yearArray.push(year);
         }
@@ -26,7 +26,19 @@ export default class StatFilter extends Component {
     {
         if(this.state.startYear !== prevState.startYear || this.state.endYear !== prevState.endYear)
         {
-            this.props.onUpdate({start: this.state.startYear, end: this.state.endYear});
+            const {startYear, endYear} = this.state;
+            if(startYear > endYear)
+            {
+                window.alert("Start year must come before end year.")
+            }
+            else if(startYear === endYear)
+            {
+                window.alert("Start and end years must not be the same");
+            }
+            else
+            {
+                this.props.onUpdate({start: this.state.startYear, end: this.state.endYear});
+            }
         }
     }
 

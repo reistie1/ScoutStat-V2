@@ -52,6 +52,8 @@ const dataService = {
                 console.log(e);
             });
 
+            console.log(stats);
+
             playerData.push(stats);
         }
         cb(playerData);        
