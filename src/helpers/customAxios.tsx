@@ -8,7 +8,6 @@ var url = "";
 url = `https://localhost:5001`;
 
 
-
 //create a new Axios instance with a custom config.
 const customAxios = Axios.create({
   baseURL: url,
@@ -17,13 +16,12 @@ const customAxios = Axios.create({
 });
 
 //create request, response & error handlers
-const requestHandler = request => { return request; };
+const requestHandler = (request: any) => { return request; };
 
-const errorHandler = error => { return Promise.reject(error); };
+const errorHandler = (error: any) => { return Promise.reject(error); };
 
 //configure/make use of request & response interceptors from Axios
 customAxios.interceptors.request.use((request) => requestHandler(request), (error) => errorHandler(error));
-
 customAxios.interceptors.response.use((response) => { return response }, async function (error) { throw error; });
 
 //export the newly created Axios instance to be used in different locations.

@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/react-cookies": "^0.1.0",
+    "@types/react-router-dom": "^5.3.3",
     "axios": "^0.27.2",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.3",
@@ -40,5 +42,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "typescript": "^3.9.10"
   }
 }

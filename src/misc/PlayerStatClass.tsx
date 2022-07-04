@@ -1,5 +1,33 @@
 export default class PlayerStats {
-    constructor(season, stats)
+    assists: number[];
+    blocked: number[];
+    evenTimeOnIce: number[];
+    evenTimeOnIcePerGame: number[];
+    faceOffPct: number[];
+    gameWinningGoals: number[];
+    games: number[];
+    goals: number[];
+    hits: number[];
+    overTimeGoals: number[];
+    penaltyMinutes: number[];
+    pim: number[];
+    plusMinus: number[];
+    points: number[];
+    powerPlayGoals: number[];
+    powerPlayPoints: number[];
+    powerPlayTimeOnIce: number[];
+    powerPlayTimeOnIcePerGame: number[];
+    shifts: number[];
+    shortHandedGoals: number[];
+    shortHandedPoints: number[];
+    shortHandedTimeOnIce: number[];
+    shortHandedTimeOnIcePerGame: number[];
+    shotPct: number[];
+    shots: number[];
+    timeOnIce: number[];
+    timeOnIcePerGame: number[];
+
+    constructor()
     {
         this.assists = [];
         this.blocked = [];
@@ -31,12 +59,12 @@ export default class PlayerStats {
     }
 
     
-    updateStatList(statName, data){
-        this[statName].push(data);
+    updateStatList(statName: string, data: any){
+        [statName].push(data);
     }
 
-    getStatList(statName){
-        return this[statName];
+    getStatList(statName: string){
+        return [statName];
     }
 
     getStats()

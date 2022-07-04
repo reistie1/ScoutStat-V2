@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ErrorNotice(props) {
+export default function ErrorNotice(props: any) {
     return (
         <div className="error-notice">
             <span>{props.message}</span>

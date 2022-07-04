@@ -1,85 +1,85 @@
-import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom'
-import {Doughnut} from 'react-chartjs-2'
-import Axios from 'axios'
-import StatsContainer from '../StatsContainer/StatsContainer'
-import TeamColors from '../../misc/TeamColors'
-import SearchIcon from '@material-ui/icons/Search'
-import Footer from '../Footer/Footer'
-import Sidebar from '../Sidebar/Sidebar'
-import ErrorNotice from '../../misc/errorNotice'
+import React from 'react'
+// import {useHistory} from 'react-router-dom'
+// import {Doughnut} from 'react-chartjs-2'
+// import Axios from 'axios'
+// import StatsContainer from '../StatsContainer/StatsContainer'
+// import TeamColors from '../../misc/TeamColors'
+// import SearchIcon from '@material-ui/icons/Search'
+// import Footer from '../Footer/Footer'
+// import Sidebar from '../Sidebar/Sidebar'
+// import ErrorNotice from '../../misc/errorNotice'
 
 
 export default function TeamReports() {
-    const [season, setSeason] = useState('')
-    const [team, setTeam] = useState('')
-    const [stats, setStats] = useState({})
-    const [splits, setSplits] = useState({})
-    const [teamstat, setTeamStat] = useState({})
-    const [color, setColor] = useState({})
-    const [error, setError] = useState()
-    const history = useHistory()
+    // const [season, setSeason] = useState('')
+    // const [team, setTeam] = useState('')
+    // const [stats, setStats] = useState({})
+    // const [splits, setSplits] = useState({})
+    // const [teamstat, setTeamStat] = useState({})
+    // const [color, setColor] = useState({})
+    // const [error, setError] = useState()
+    // const history = useHistory()
 
-    const dataFaceoffs = {
-        labels: ['FOT','FOW','FOL'],
-        datasets:[{
-            label: 'Faceoffs Metrics',
-            data: [stats.faceOffsTaken, stats.faceOffsWon, stats.faceOffsLost],
-            backgroundColor: ['#108dc7', '#ef8e38', '#6A82FB'],
-            borderColor: 'black'
-        }]
-    }
+    // const dataFaceoffs = {
+    //     labels: ['FOT','FOW','FOL'],
+    //     datasets:[{
+    //         label: 'Faceoffs Metrics',
+    //         data: [stats.faceOffsTaken, stats.faceOffsWon, stats.faceOffsLost],
+    //         backgroundColor: ['#108dc7', '#ef8e38', '#6A82FB'],
+    //         borderColor: 'black'
+    //     }]
+    // }
 
-    const dataWins = {
-        labels:['winScoreFirst', 'winOppScoreFirst', 'winLeadFirstPer', 'winLeadSecondPer', 'winOutshootOpp', 'winOutshotByOpp'],
-        datasets:[{
-            label: 'Win ratios',
-            data: [stats.winScoreFirst,stats.winOppScoreFirst, stats.winLeadFirstPer, stats.winLeadSecondPer, stats.winOutshootOpp, stats.winOutshotByOpp],
-            backgroundColor: ['#FC5C7D','#c94b4b','#4b134f','#23074d','#302b63','#667db6'],
-            borderColor: 'black'
-        }]
-    }
+    // const dataWins = {
+    //     labels:['winScoreFirst', 'winOppScoreFirst', 'winLeadFirstPer', 'winLeadSecondPer', 'winOutshootOpp', 'winOutshotByOpp'],
+    //     datasets:[{
+    //         label: 'Win ratios',
+    //         data: [stats.winScoreFirst,stats.winOppScoreFirst, stats.winLeadFirstPer, stats.winLeadSecondPer, stats.winOutshootOpp, stats.winOutshotByOpp],
+    //         backgroundColor: ['#FC5C7D','#c94b4b','#4b134f','#23074d','#302b63','#667db6'],
+    //         borderColor: 'black'
+    //     }]
+    // }
 
-    const dataPP = {
-        labels: ['ppG', 'ppGA', 'ppOpp'],
-        datasets:[{
-            label: 'Power Play Totals',
-            data: [stats.powerPlayGoals, stats.powerPlayGoalsAgainst, stats.powerPlayOpportunities],
-            backgroundColor: ['#DB5A7C', '#736BDB', '#4AC1F0'],
-            borderColor: 'black'
-        }]
-    }
+    // const dataPP = {
+    //     labels: ['ppG', 'ppGA', 'ppOpp'],
+    //     datasets:[{
+    //         label: 'Power Play Totals',
+    //         data: [stats.powerPlayGoals, stats.powerPlayGoalsAgainst, stats.powerPlayOpportunities],
+    //         backgroundColor: ['#DB5A7C', '#736BDB', '#4AC1F0'],
+    //         borderColor: 'black'
+    //     }]
+    // }
 
-    const submitForm = async (e) =>{
-        e.preventDefault()
-        const axiosConfig = {
-            headers:{
-                "Content-Type": "application/json;charset=UTF-8"
-            }
-        }
+    // const submitForm = async (e) =>{
+    //     e.preventDefault()
+    //     const axiosConfig = {
+    //         headers:{
+    //             "Content-Type": "application/json;charset=UTF-8"
+    //         }
+    //     }
 
-        const payload = {season, team}
+    //     const payload = {season, team}
 
-        try{
-            const datas = await Axios.post('http://localhost:5000/players/team', payload, axiosConfig)
-            setStats(datas.data.stat)
-            setTeamStat(datas.data.team)
-            setSplits(datas.data.stat_rank)
-        }catch(e){
-            e.response.data.msg && setError(e.response.data.msg)
-        }
-    }
+    //     try{
+    //         const datas = await Axios.post('http://localhost:5000/players/team', payload, axiosConfig)
+    //         setStats(datas.data.stat)
+    //         setTeamStat(datas.data.team)
+    //         setSplits(datas.data.stat_rank)
+    //     }catch(e){
+    //         e.response.data.msg && setError(e.response.data.msg)
+    //     }
+    // }
 
-    useEffect(() => {
-        // let token = localStorage.getItem("token")
-        // if(!token) history.push('login')
-        const value = teamstat.name === undefined ? 'calgary flames' : teamstat.name.toLowerCase()
-        setColor(TeamColors[value])
-    })
+    // useEffect(() => {
+    //     // let token = localStorage.getItem("token")
+    //     // if(!token) history.push('login')
+    //     const value = teamstat.name === undefined ? 'calgary flames' : teamstat.name.toLowerCase()
+    //     setColor(TeamColors[value])
+    // })
     
     return (
         <>
-        <div className="page">
+        {/* <div className="page">
             <Sidebar/>
                 <div className="main-container">
                 {error && <ErrorNotice message={error} clearError={()=> setError(undefined)} />}
@@ -172,7 +172,7 @@ export default function TeamReports() {
                     </div>
                 </div>
         </div>
-        <Footer/>
+        <Footer/> */}
         </>
     )
 }

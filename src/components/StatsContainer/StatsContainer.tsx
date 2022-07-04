@@ -1,7 +1,7 @@
 import React from 'react'
 import '../../styles.css'
 
-export default function PercentContainer(props) {
+export default function PercentContainer(props: any) {
     return (
         <div className="percent-container">
             <h5 style={{backgroundColor: props.color}}>{props.name}</h5>

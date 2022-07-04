@@ -2,57 +2,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
-*{
+*
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-a{
+a
+{
     text-decoration: unset;
 }
 
-ul{
+ul
+{
     margin-left: 1.5rem;
     list-style: none;
 }
 
-button {
+button 
+{
     border: none;
     background: none;
     color: unset;
     cursor: pointer;
 }
 
-h1,h2,h3,h4,h5,h6,p,ul,ol{
+h1,h2,h3,h4,h5,h6,p,ul,ol
+{
     margin: 1rem 0;
 }
 
-body, html{
-    font-family: "Poppins", sans-serif;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+body, html
+{
+    font-family: 'Staatliches', cursive;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
 /* Header Styles */
 
-header{
-    display: flex;
+header, footer
+{
     height: 10%;
     min-width: 100% !important;
+    display: flex;
     justify-content: space-between;
-    background-color: rgb(65, 83, 175);
+    background-color: #23405E;
 }
 
-header .title{
-    color: white;
-    margin: 0;
-    padding: 0.8rem;
+header .title
+{
+    color: #F8E9A1;
     font-family: 'Racing Sans One', cursive;
-    font-size: 34px;
 }
 
 header .auth-options{
@@ -133,7 +138,8 @@ input[type="password"]{
     font-size: 1rem;
 }
 
-.form input[type="submit"]:hover{
+.form input[type="submit"]:hover
+{
     border: 1px solid rgb(76, 83, 148);
     background-color: rgb(76, 83, 148);
     box-shadow: inset 0px 0px 5px rgb(149, 150, 216);
@@ -141,7 +147,8 @@ input[type="password"]{
     outline: none;
 }
 
-.form input[type="submit"]{
+.form input[type="submit"]
+{
     width: 30%;
     display: block;
     margin: 0.5rem auto;
@@ -156,30 +163,31 @@ input[type="password"]{
 
 /* Sidebar */
 
-.sidebar{
-    padding: 1rem;
-    width: 20%;
-    height: 60vw;
+.sidebar 
+{
+    position: relative;
+    height: 100%;
     text-align: center;
-    top: 4rem;
-    margin: 0;
+    margin-top: 10%;
     box-shadow: 0 5px 7px lightgray;
 }
 
-.sidebar-item {
+.sidebar-item 
+{
     padding: 0.5rem;
     width: 100%;
 }
 
-.sidebar-item:hover{
-    opacity: 0.7;
-    background-color: rgb(65,83,175);
-    color: white;
+.sidebar-item a:hover
+{
+    color: #23405E;
+    text-decoration: none;
 }
 
-/* Search Bar*/
 
-.searchbar{
+/* Search Bar*/
+.searchbar 
+{
     width: 95%;
     padding: 0.5rem;
     margin: 1rem auto;
@@ -510,10 +518,6 @@ input[type="password"]{
 /* Footer Styles */
 
 footer{
-    height: 100%;
-    width: 100%;
-    background-color: rgb(65, 83, 175);
-    color: white;
     position: relative;
     bottom: 0;
     display: flex;
@@ -528,26 +532,21 @@ footer{
     justify-content: center;
 }
 
-.icon-container{
-    width: 30%;
-    align-self: center;
-}
 
 .footer-links{
     padding: 1rem;
 }
 
-.link-item{
-    padding: 0.5rem;
-    color: white;
+.link-item {
     text-decoration: none;
+    color: white;
 }
 
 .link-item:hover{
-    opacity: 0.9;
     cursor: pointer;
     width: 100%;
-    background-color: rgb(53, 68, 145);
+    color: #F8E9A1 !important;
+    text-decoration: none;
 }
 
 .link-item:active{
@@ -587,9 +586,6 @@ footer{
         width: 100%;
         text-align: center;
     }
-
-    .link-item{}
-
 
     header .auth-options button{
         font-size: 0.8rem;
@@ -645,15 +641,6 @@ footer{
         width: 100%;
         height: auto;
     }
-
-    /* .player-info table thead tr th{
-        font-size: 0.5rem;
-        padding: 0.2rem;
-    }
-
-    .player-info table tbody tr td{
-        font-size: 0.4rem;
-    } */
 
     .game-container{
         flex-direction: column;
@@ -738,45 +725,3 @@ footer{
         margin: 0;
     }
 }
-/* 
-@media screen and (min-width: 550px) and (max-width: 768px){
-    .chart-area{
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .chart-container{
-        width: 100%;
-    }
-
-    .playerstat-wrapper{
-        flex-direction: column;
-    }
-
-    .player-info table thead tr th{
-        font-size: 1rem;
-        padding: 0.3rem;
-    }
-
-    .player-info table tbody tr td{
-        font-size: 0.9rem;
-    }
-
-    .score-item{
-        grid-template-rows: 1fr auto;
-    }
-
-    .home .away{
-        height: 90px;
-    }
-
-    .sidebar{
-        grid-column: 1/2;
-    }
-
-
-    .credential-container{
-        width: 60%;
-    }
-
-} */

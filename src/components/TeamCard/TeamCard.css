@@ -25,7 +25,8 @@
     height: 150px;
     border: 1px solid gray;
     position: relative;
-    margin: 0.75rem;
+    margin: 1rem;
+    border-radius: 10px;
 }
 
 .team-wrapper:hover

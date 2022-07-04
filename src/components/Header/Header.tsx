@@ -1,15 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import AuthOptions from '../auth/AuthOptions'
 
 
 export default function Header() {
-
     return (
         <>
-            <header>
+            <header className="m-0 pl-3 pt-0">
                 <Link to="/teams">
-                    <h2 className="title">Scout Stat</h2>
+                    <h1 className="title">Scout Stat</h1>
                 </Link>
             </header>
         </>

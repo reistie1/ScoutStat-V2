@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './PlayerInfo.css';
 
-export default function PlayerInfo(props) {    
+export default function PlayerInfo(props: any) {    
     return (
         <div className="container col-12 p-0" style={{border: '1px solid gray', borderRadius: '6px'}}>
             <div className="container text-center">
