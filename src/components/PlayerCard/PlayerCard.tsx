@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import TeamColours from '../../misc/TeamColors';
 import colourScheme from '../../misc/IcolourScheme';
-import TeamCard from '../TeamCard/TeamCard';
 import './PlayerCard.css';
 
 type CardState = {
@@ -10,19 +9,21 @@ type CardState = {
 
 
 export default class PlayerCard extends Component<{player: any, team: any}, CardState> {
+    setTeamColour = () => {
+        let team: colourScheme = TeamColours.filter(value => {return value.name === this.props.team.toLowerCase()})[0];
+        this.setState({ team: team });
+    }
 
     componentDidMount()
     {
-        let team: colourScheme = TeamColours.filter(value => {return value.name === this.props.team.toLowerCase()})[0];
-        this.setState({ team: team });
+        this.setTeamColour();
     }
 
     componentDidUpdate(prevProps: any, prevState: any)
     {
         if(this.props.team.name !== prevProps.team.name)
         {
-            let team: colourScheme = TeamColours.filter(value => {return value.name === this.props.team.toLowerCase()})[0];
-            this.setState({ team: team });
+            this.setTeamColour();
         }
     }
     

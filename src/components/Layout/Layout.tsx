@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import dataService from '../../services/dataService';
 import TeamCard from '../TeamCard/TeamCard';
 import PlayerCard from '../PlayerCard/PlayerCard';
-// import Footer from '../Footer/Footer';
 import Sidebar from '../Sidebar/Sidebar';
 
 type PlayerState = {
