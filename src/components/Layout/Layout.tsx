@@ -3,6 +3,8 @@ import dataService from '../../services/dataService';
 import TeamCard from '../TeamCard/TeamCard';
 import PlayerCard from '../PlayerCard/PlayerCard';
 import Sidebar from '../Sidebar/Sidebar';
+import TeamReports from '../TeamReports/TeamReports';
+
 
 type PlayerState = {
     teams: string[];
@@ -25,9 +27,7 @@ export default class Layout extends Component<{}, PlayerState> {
 
         if(result)
         {
-            dataService.fetchTeamAsync((data: any) => { 
-                this.setState({type: 'players', players: data, team: teamName}) 
-            }, id);
+            dataService.fetchTeamAsync((data: any) => { this.setState({type: 'players', players: data, team: teamName}) }, id);
         }
         
     }

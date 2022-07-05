@@ -1,4 +1,4 @@
-import colourScheme from "./IcolourScheme"
+import colourScheme from "../Interfaces/ColourScheme"
 
 const colours: Array<colourScheme> = 
 [

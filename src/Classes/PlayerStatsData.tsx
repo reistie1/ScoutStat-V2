@@ -1,5 +1,5 @@
-import PlayerMetrics from './PlayerMetrics';
-import { DataMetric } from './DataMetric';
+import PlayerMetrics from '../Interfaces/PlayerMetrics';
+import { DataMetric } from '../Interfaces/DataMetric';
 
 export default class PlayerStatsData {
     MetricsList = Array<PlayerMetrics>();

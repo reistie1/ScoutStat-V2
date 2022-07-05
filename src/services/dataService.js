@@ -14,6 +14,17 @@ const dataService = {
             console.log(e);
         });
     },
+    async fetchTeamStatsByYearAsync(cb, year, id)
+    {
+        Axios.get(url + `/api/v1/teams/${id}/stats?season=${year}`)
+        .then(response => {
+            // cb(response.data.teams[0].roster.roster);
+            console.log(response);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+    },
     async fetchTeamAsync(cb, id)
     {
         Axios.get(url + "/api/v1/teams/" + id + "?expand=team.roster")

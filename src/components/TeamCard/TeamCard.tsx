@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import TeamColours from '../../misc/TeamColors';
-import colourScheme from '../../misc/IcolourScheme';
+import colourScheme from '../../Interfaces/ColourScheme';
 import './TeamCard.css'
 
 type CardState = {

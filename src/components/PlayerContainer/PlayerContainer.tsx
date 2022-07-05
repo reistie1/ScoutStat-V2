@@ -3,7 +3,7 @@ import dataService from '../../services/dataService';
 import PlayerInfo from '../PlayerInfo/PlayerInfo';
 import YearFilter from '../YearFilter/YearFilter';
 import DataChart from '../DataChart/DataChart';
-import PlayerStatsData from '../../misc/PlayerStatsData';
+import PlayerStatsData from '../../Classes/PlayerStatsData';
 
 type containerState = {
     player: any,
@@ -27,7 +27,7 @@ export default class PlayerContainer extends Component<{}, containerState> {
     componentDidUpdate(prevProps: any, prevState: any)
     {
         const {yearSpan, playerStatsData} = this.state;
-        
+
         if(yearSpan?.end !== prevState?.yearSpan?.end && yearSpan?.start !== 'N/A')
         {
             this.getPlayerData()

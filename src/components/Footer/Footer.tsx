@@ -7,7 +7,7 @@ export default function Footer() {
             <div className="d-flex justify-content-center align-items-center p-2">
                 <div className="container p-2 col-7">
                     <Link className="link-item p-1" to="schedule">Schedule</Link>
-                    <Link className="link-item p-1" to="players">Player Reporting</Link>
+                    <Link className="link-item p-1" to="/">Player Reporting</Link>
                     <Link  className="link-item p-1" to="teams">Team Reporting</Link>
                 </div>
                 <div className="text-light col-4 p-1">
