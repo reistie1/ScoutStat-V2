@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 export default function Footer() {
     return (
         <footer>
-            <div className="d-flex justify-content-center align-items-center p-2">
+            <div className="d-flex justify-content-center align-items-center">
                 <div className="container p-2 col-7">
                     <Link className="link-item p-1" to="schedule">Schedule</Link>
                     <Link className="link-item p-1" to="/">Player Reporting</Link>

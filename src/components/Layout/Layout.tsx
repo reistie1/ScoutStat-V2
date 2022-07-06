@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import dataService from '../../services/dataService';
 import TeamCard from '../TeamCard/TeamCard';
 import PlayerCard from '../PlayerCard/PlayerCard';
-import Sidebar from '../Sidebar/Sidebar';
-import TeamReports from '../TeamReports/TeamReports';
+// import Sidebar from '../Sidebar/Sidebar';
 
 
 type PlayerState = {
@@ -11,6 +10,7 @@ type PlayerState = {
     players: string[];
     type: string;
     team: string;
+    showSelection: boolean;
 }
 
 export default class Layout extends Component<{}, PlayerState> {
@@ -29,11 +29,16 @@ export default class Layout extends Component<{}, PlayerState> {
         {
             dataService.fetchTeamAsync((data: any) => { this.setState({type: 'players', players: data, team: teamName}) }, id);
         }
+        else
+        {
+            localStorage.setItem("selectedTeamId", id.toString());
+            window.location.href = "/teams";
+        }
         
     }
 
     render() {
-        console.log(this.state?.type === "teams");
+        console.log(this.state);
         return (
             <div>
                 {/* <Sidebar/> */}
