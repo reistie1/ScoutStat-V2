@@ -521,6 +521,7 @@ footer{
     position: absolute;
     height: 4.5rem;
     width: 100%;
+    z-index: 9999;
     bottom: 0;
     padding: 0;
     display: flex;

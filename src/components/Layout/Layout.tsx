@@ -34,7 +34,6 @@ export default class Layout extends Component<{}, PlayerState> {
             localStorage.setItem("selectedTeamId", id.toString());
             window.location.href = "/teams";
         }
-        
     }
 
     render() {
@@ -42,7 +41,7 @@ export default class Layout extends Component<{}, PlayerState> {
         return (
             <div>
                 {/* <Sidebar/> */}
-                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', padding: '1rem 0'}}>
+                <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', padding: '2rem', height: '625px', overflowX: 'scroll'}}>
                     {
                         this.state?.type === "teams" ?
                         this.state?.teams.map((value: any, index: number) => {

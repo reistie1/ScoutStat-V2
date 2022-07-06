@@ -18,8 +18,8 @@ const dataService = {
     {
         Axios.get(url + `/api/v1/teams/${id}/stats?season=${year}`)
         .then(response => {
-            // cb(response.data.teams[0].roster.roster);
-            console.log(response);
+            console.log(response.data.stats[0].splits);
+            cb(response.data.stats[0].splits[0].stat, response.data.stats[1].splits[0].stat);
         })
         .catch(e => {
             console.log(e);
@@ -30,7 +30,6 @@ const dataService = {
         Axios.get(url + "/api/v1/teams/" + id + "?expand=team.roster")
         .then(response => {
             cb(response.data.teams[0].roster.roster);
-            console.log(response.data.teams[0].roster.roster);
         })
         .catch(e => {
             console.log(e);
@@ -41,7 +40,6 @@ const dataService = {
         Axios.get(url + "/api/v1/people/" + id)
         .then(response => {
             cb(response.data.people[0]);
-            console.log(response.data.people[0]);
         })
         .catch(e => {
             console.log(e);
@@ -62,8 +60,6 @@ const dataService = {
             .catch(e => {
                 console.log(e);
             });
-
-            console.log(stats);
 
             playerData.push(stats);
         }

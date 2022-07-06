@@ -15,7 +15,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header/>
-        <div>
+        <div style={{ overflowX: 'auto'}}>
           <Switch >
             <Route exact path="/" component={Layout}/>
             <Route path="/teams" component={TeamReports}/>

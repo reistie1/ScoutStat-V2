@@ -64,7 +64,7 @@ export default class PlayerContainer extends Component<{}, containerState> {
     render() {
         console.log(this.state, this.props);
         return (
-            <div className="container col-12">
+            <div className="container col-12" style={{height: '625px', overflowX: 'scroll'}}>
 
                 <div className="row d-flex justify-content-between">
                     <h3 className="text-left p-3 col-4">Player Information</h3>
