@@ -33,11 +33,11 @@ export default class RankIndicator extends Component<{rank: string}, IndicatorSt
 
     render() {
         return (
-            <div style={{backgroundColor: this.state?.colour, padding: '0.5rem', height: '40px', borderRadius: '50%', textAlign: 'center', color: 'white', lineHeight: 0}}>
+            <>
                 {
-                    this.props.rank !== '0' ? <p>{this.props.rank}</p> : null
+                    this.props.rank !== '0' ? <h5 style={{backgroundColor: this.state?.colour, padding: '0.5rem', height: '40px', borderRadius: '50%', textAlign: 'center', color: 'white', lineHeight: 1.75}}>{this.props.rank}</h5> : null
                 }
-            </div>
+            </>
         )
     }
 }
