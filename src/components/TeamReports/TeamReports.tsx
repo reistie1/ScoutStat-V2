@@ -50,7 +50,7 @@ export default class TeamReports extends Component<{}, TeamStatsState> {
                         <h2>{this.state?.teamName}</h2>
                         <TeamForm onSelected={this.getTeamsYearStats}/> 
                     </div>
-                    <div>
+                    <div style={{display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap'}}>
                         {
                             this.state?.teamStats?.map((value: any, index: number) => { return <StatsContainer key={index} name={value.name} value={value.value} rank={value.rank}/> })
                         }     
