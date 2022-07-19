@@ -9,7 +9,7 @@ import TeamStatsData from '../../Classes/TeamStatsData';
 
 type TeamStatsState = {
     teamStats: any
-    teamRankings: any
+    teamName: string | null
 }
 
 
@@ -18,16 +18,21 @@ export default class TeamReports extends Component<{}, TeamStatsState> {
     getTeamsYearStats = (year: string) =>
     {
         let TeamData = new TeamStatsData();
-        let TeamRankingData = new TeamStatsData();
-        dataService.fetchTeamStatsByYearAsync((teamStats: any, teamRankings: any) => {
+        dataService.fetchTeamStatsByYearAsync((teamStats: any, teamRankings: any, teamName: string) => {
             Object.keys(teamStats).forEach((value: any, index: number) => {
                 TeamData.updateData(value, teamStats[value]);
             });
             Object.keys(teamRankings).forEach((value: any, index: number) => {
-                TeamRankingData.updateData(value, teamRankings[value]);
+                TeamData.updateRank(value, teamRankings[value])
             });
-            this.setState({teamStats: TeamData.getAllMetrics(), teamRankings: TeamRankingData.getAllMetrics()});
+            this.setState({teamStats: TeamData.getAllMetrics()});
         }, year, localStorage.getItem("selectedTeamId"));
+    }
+
+    componentDidMount()
+    {
+        let team = window.localStorage.getItem("selectedTeam");
+        this.setState({teamName: team});
     }
 
     
@@ -41,13 +46,15 @@ export default class TeamReports extends Component<{}, TeamStatsState> {
                         <h3 className="text-left p-3 col-4">Team Information</h3>
                         <a className="col-3 p-3 text-right" href="/" aria-label="home link">Go back to team selection</a>
                     </div>
-                    <TeamForm onSelected={this.getTeamsYearStats}/>   
-                    {
-                        this.state?.teamStats.map((value: any, index: number) => { return <p key={index}>{value.name} - {value.value}</p> })
-                    }  
-                    {
-                        this.state?.teamRankings.map((value: any, index: number) => { return <p key={index}>{value.name} - {value.value}</p> })
-                    }              
+                    <div style={{display: 'flex', alignContent: 'flex-end'}}>       
+                        <h2>{this.state?.teamName}</h2>
+                        <TeamForm onSelected={this.getTeamsYearStats}/> 
+                    </div>
+                    <div>
+                        {
+                            this.state?.teamStats?.map((value: any, index: number) => { return <StatsContainer key={index} name={value.name} value={value.value} rank={value.rank}/> })
+                        }     
+                    </div>          
                 </div>
             </>
         )

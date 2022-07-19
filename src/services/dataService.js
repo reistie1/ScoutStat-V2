@@ -18,8 +18,7 @@ const dataService = {
     {
         Axios.get(url + `/api/v1/teams/${id}/stats?season=${year}`)
         .then(response => {
-            console.log(response.data.stats[0].splits);
-            cb(response.data.stats[0].splits[0].stat, response.data.stats[1].splits[0].stat);
+            cb(response.data.stats[0].splits[0].stat, response.data.stats[1].splits[0].stat, response.data.stats[0].splits[0].team.name);
         })
         .catch(e => {
             console.log(e);

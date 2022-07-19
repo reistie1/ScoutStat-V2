@@ -32,6 +32,7 @@ export default class Layout extends Component<{}, PlayerState> {
         else
         {
             localStorage.setItem("selectedTeamId", id.toString());
+            localStorage.setItem("selectedTeam", teamName);
             window.location.href = "/teams";
         }
     }

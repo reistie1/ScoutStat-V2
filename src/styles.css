@@ -395,10 +395,12 @@ input[type="password"]{
 
 .percent-container {
     text-align: center;
-    color: white;
     flex-grow: 1;
-    width: auto;
-    height: auto;
+    max-width: 12%;
+    height: 100px;
+    border-radius: 50%;
+    border: 1px solid red;
+    text-align: center;
 }
 
 .percent-container h5{
