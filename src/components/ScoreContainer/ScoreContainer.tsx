@@ -1,36 +1,28 @@
-import React from 'react'
-// import TeamColors from '../../misc/TeamColors'
+import React, {useState} from 'react'
 
 export default function ScoreContainer(props: any) {
-    // const [awayColor, setAwayColor] = useState({})
-    // const [homeColor, setHomeColor] = useState({})
-
-    // useEffect(()=>{
-    //     setHomeColor(TeamColors[props.home.team.name.toLowerCase()])
-    //     setAwayColor(TeamColors[props.away.team.name.toLowerCase()])
-    // }, [props])
 
     return (
         <>
-          <div className="score-item">
-              {/* <div className="home">
-                <div className="home-top" style={{backgroundColor: homeColor['color1'], color: 'white'}}>
+            <div className="score-item" style={{border: '1px solid gray'}}>
+              <div className="home">
+                <div className="home-top">
                     <p>{props.home.team.name}</p>
                     <p>{`${props.home.leagueRecord.wins} - ${props.home.leagueRecord.losses} - ${props.home.leagueRecord.ot ?? 0} `}</p>  
                 </div>
-                <div className="home-bottom" style={{backgroundColor: homeColor['color2'], color: 'white'}}>
+                <div className="home-bottom">
                     <h5>{props.home.score}</h5>
                 </div>
               </div>
               <div className="away">
-                <div className="away-top" style={{backgroundColor: awayColor['color1'], color: 'white'}}>
+                <div className="away-top">
                     <p>{props.away.team.name}</p>
-                    <p>{`${props.away.leagueRecord.wins} - ${props.away.leagueRecord.losses} - ${props.away.leagueRecord.ot} `}</p>  
+                    <p>{`${props.away.leagueRecord.wins} - ${props.away.leagueRecord.losses} - ${props.away.leagueRecord.ot ?? 0} `}</p>  
                 </div>
-                <div className="away-bottom" style={{backgroundColor: awayColor['color2'], color: 'white'}}>
+                <div className="away-bottom">
                     <h5>{props.away.score}</h5>
                 </div>
-              </div> */}
+              </div>
           </div>
         </>
     )

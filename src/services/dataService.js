@@ -64,9 +64,15 @@ const dataService = {
         }
         cb(playerData);        
     },
-    async fetchScheduleDataAsync()
+    async fetchScheduleDataAsync(cb, dateRange)
     {
-
+        await Axios.get(url + `/api/v1/schedule?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`)
+        .then(response => {
+            cb(response.data.dates);
+        })
+        .catch(e => {
+            console.log(e);
+        })
     }
 }
 
