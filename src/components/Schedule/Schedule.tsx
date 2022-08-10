@@ -9,8 +9,8 @@ import '../../styles.css'
 export default function Schedule() {
     // const [error, setError] = useState()
     // const history = useHistory()
-    const [startDate, setStartDate] = useState();
-    const [endDate, setEndDate] = useState();
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
     const [data, setData] = useState([]);
     
     const submitFunc = async (e: any) => {
@@ -36,12 +36,15 @@ export default function Schedule() {
                         <button><SearchIcon/></button>
                     </div>                   
                 </form>
+                {
+                    data.length === 0 && (startDate !== '' && endDate !== '') ? <ErrorNotice message={"No games found for those dates"}/> : null
+                }
                 <div className="col-12" style={{width: '100%'}}>
                 {
                     data.map((value: any, index: number) => {
                         return <div key={index} className="text-center">
                             <h2>{value.date}</h2>
-                            <div style={{display: 'flex', overflowX: 'scroll', flexWrap: 'wrap'}}>
+                            <div className="d-flex justify-content-center flex-wrap flex-row">
                             {
                                 value.games.map((innerValue: any, innerIndex: number) => {
                                     return <ScoreContainer key={innerIndex} home={innerValue.teams?.home} away={innerValue.teams?.away}/> 
