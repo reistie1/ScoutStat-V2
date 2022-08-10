@@ -452,8 +452,9 @@ input[type="password"]{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 48%;
-    margin: 1%;
+    margin: 0.5rem;
+    width: 33%;
+    box-shadow: 4px 4px 8px gray;
 }
 
 .home, .away{
@@ -522,7 +523,7 @@ input[type="password"]{
 /* Footer Styles */
 
 footer{
-    position: absolute;
+    position: relative;
     height: 4.5rem;
     width: 100%;
     z-index: 9999;

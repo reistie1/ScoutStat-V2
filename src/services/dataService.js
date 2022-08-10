@@ -68,6 +68,7 @@ const dataService = {
     {
         await Axios.get(url + `/api/v1/schedule?startDate=${dateRange.startDate}&endDate=${dateRange.endDate}`)
         .then(response => {
+            console.log(response);
             cb(response.data.dates);
         })
         .catch(e => {

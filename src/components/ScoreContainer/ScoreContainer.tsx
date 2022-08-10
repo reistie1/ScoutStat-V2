@@ -4,7 +4,7 @@ export default function ScoreContainer(props: any) {
 
     return (
         <>
-            <div className="score-item" style={{border: '1px solid gray'}}>
+            <div className="score-item" style={{border: '1px solid gray', borderRadius: '14px'}}>
               <div className="home">
                 <div className="home-top">
                     <p>{props.home.team.name}</p>

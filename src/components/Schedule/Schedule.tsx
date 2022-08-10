@@ -22,27 +22,37 @@ export default function Schedule() {
 
     return (
         <>
-            <div className="container p-2 pt-5" style={{height: '625px', overflowX: 'scroll'}}>
-                <form onSubmit={submitFunc} className="col-9 d-flex align-items-end">
-                    <div className="col-4">
+            <div className="container-fluid p-3 pt-5" style={{height: '625px', overflowX: 'scroll'}}>
+                <form onSubmit={submitFunc} className="col-12 d-flex align-items-end justify-content-center m-0">
+                    <div className="col-3">
                         <label className="mb-0 pl-1" htmlFor="start-date">Start Date</label>
                         <input className="form-select" type="date" name="start-date" onChange={(e: any) => setStartDate(e.target.value)}/>
                     </div>
-                    <div className="col-4">
+                    <div className="col-3">
                         <label className="mb-0 pl-1" htmlFor="end-date">End Date</label>
                         <input className="form-select" type="date" name="end-date" onChange={(e: any) => setEndDate(e.target.value)}/>
                     </div> 
-                    <div className="p-1" style={{backgroundColor: 'blue', color: 'white', borderRadius: '4px'}}>
+                    <div className="p-1" style={{borderRadius: '4px'}}>
                         <button><SearchIcon/></button>
                     </div>                   
                 </form>
+                <div className="col-12" style={{width: '100%'}}>
                 {
                     data.map((value: any, index: number) => {
-                        return value.games.map((innerValue: any, innerIndex: number) => {
-                           return <ScoreContainer home={innerValue.teams?.home} away={innerValue.teams?.away}/> 
-                        })
+                        return <div key={index} className="text-center">
+                            <h2>{value.date}</h2>
+                            <div style={{display: 'flex', overflowX: 'scroll', flexWrap: 'wrap'}}>
+                            {
+                                value.games.map((innerValue: any, innerIndex: number) => {
+                                    return <ScoreContainer key={innerIndex} home={innerValue.teams?.home} away={innerValue.teams?.away}/> 
+                                })
+                            }
+                            </div>
+                            
+                        </div>
                     })
                 }
+                </div>
             </div>
         </>
     )
