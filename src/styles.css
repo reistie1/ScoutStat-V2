@@ -453,7 +453,7 @@ input[type="password"]{
     flex-direction: column;
     flex-wrap: wrap;
     margin: 0.5rem;
-    width: 25%;
+    min-width: 25%;
     box-shadow: 4px 4px 8px gray;
 }
 

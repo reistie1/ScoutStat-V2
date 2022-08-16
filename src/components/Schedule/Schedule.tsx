@@ -39,12 +39,12 @@ export default function Schedule() {
                 {
                     data.length === 0 && (startDate !== '' && endDate !== '') ? <ErrorNotice message={"No games found for those dates"}/> : null
                 }
-                <div className="col-12" style={{width: '100%'}}>
+                <div className="col-12 p-0 m-0">
                 {
                     data.map((value: any, index: number) => {
                         return <div key={index} className="text-center">
                             <h2>{value.date}</h2>
-                            <div className="d-flex justify-content-center flex-wrap flex-row">
+                            <div className="d-flex flex-row p-2" style={{overflowX: 'scroll'}}>
                             {
                                 value.games.map((innerValue: any, innerIndex: number) => {
                                     return <ScoreContainer key={innerIndex} home={innerValue.teams?.home} away={innerValue.teams?.away}/> 
