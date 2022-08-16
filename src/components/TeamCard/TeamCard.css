@@ -26,7 +26,15 @@
     border: 1px solid gray;
     position: relative;
     margin: 1rem;
-    border-radius: 10px;
+    border-radius: 14px;
+    box-shadow: 6px 6px 20px gray;
+    animation-name: team-card;
+    animation-duration: 5s;
+}
+
+@keyframes team-card {
+    from {opacity: 0;}
+    to {display: 1;}
 }
 
 .team-wrapper:hover

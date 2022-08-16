@@ -26,14 +26,16 @@ export default class TeamCard extends Component<{team: any, getTeam: (id: number
 
     render() {
         return (
-            <div className="team-wrapper" style={{border: `2px solid ${this.state?.team.color1}`}} onClick={() => this.props.getTeam(this.props.team.id, this.props.team.name)}>
-                {/* <div className="top-triangle" style={{borderLeft: `300px solid ${this.state?.team.color1}`, borderBottom: '150px solid transparent', borderRadius: '10px'}}></div> */}
-                {/* <div className="bottom-triangle" style={{borderRight: `300px solid ${this.state?.team.color2}`, borderTop: '150px solid transparent', borderBottomLeftRadius: '10px'}}></div> */}
-                <div className="team-info-wrapper" style={{color: 'black'}}>
+            <div className="team-wrapper p-0" style={{border: `2px solid ${this.state?.team.color1}`}} onClick={() => this.props.getTeam(this.props.team.id, this.props.team.name)}>
+                <div className="p-0 text-center" style={{color: 'black'}}>
                     <h6 style={{zIndex: 20}}>{this.props.team.name}</h6>
-                    <div className="team-info-container d-flex flex-column">
-                        <p className="team-info-item text-right">Division: {this.props?.team.division.name}</p>
-                        <p className="team-info-item text-right">Conference: {this.props?.team.conference.name}</p>
+                    <div style={{height: '25px'}} className="m-0">
+                        <div style={{width: '100%', height: '10%', marginBottom: '0.4rem', backgroundColor: `${this.state?.team.color1}`, zIndex: 100}}></div>
+                        <div style={{width: '100%', height: '10%', backgroundColor: `${this.state?.team.color2}`, zIndex: 100}}></div>
+                    </div>
+                    <div style={{height: '70px'}} className="d-flex flex-column justify-content-end align-items-end p-2">
+                        <p className='p-0 m-0'>Division: {this.props?.team.division.name}</p>
+                        <p className='p-0 m-0'>Conference: {this.props?.team.conference.name}</p>
                     </div>
                 </div>
             </div>
