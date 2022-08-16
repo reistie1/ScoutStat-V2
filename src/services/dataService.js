@@ -8,7 +8,6 @@ const dataService = {
         Axios.get(url + "/api/v1/teams")
         .then(response => {
             cb(response.data.teams);
-            console.log(response);
         })
         .catch(e => {
             console.log(e);
